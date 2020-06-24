@@ -1,35 +1,48 @@
-class Personagem {
-  constructor(imagem){
-    this.imagem = imagem;
-    this.tamX = 220;
-    this.tamY = 270;
-    this.alturaPersonagem = 135;
-    this.larguraPersonagem = 110;
-    this.frameAtual = 0;
+class Personagem extends Animacao {
+  constructor(imagem, x, largura, altura, larguraSprite, alturaSprite){
+    super(imagem, x, largura, altura, larguraSprite, alturaSprite)
     
-    this.qtdCol = ( this.imagem.width / this.tamX );
-    this.qtdLine = ( this.imagem.height / this.tamY );
+    this.yInicial = height - this.altura - 72;
+    this.y = this.yInicial;
+    this.velocidadeDoPulo = 0;
+    this.gravidade = 3;
+    this.limitePulo = 2;
+    this.contaPulo = 0;
   }
-  
-  exibe(){
-    
-    let x = this.frameAtual % this.qtdCol * this.tamX;
-    let y = Math.floor(this.frameAtual / this.qtdLine) * this.tamY;
-    
 
-    
-    image(this.imagem, 0, height- this.alturaPersonagem, this.larguraPersonagem, this.alturaPersonagem, x, y, this.tamX, this.tamY);
-    
-    //image(this.imagem, 0, height-135, 110, 135, this.matriz[this.frameAtual][0], this.matriz[this.frameAtual][1], 220, 270); 
-    this.anima();
-  }
-  
-  anima(){
-    this.frameAtual++;
-    
-    if (this.frameAtual===((this.qtdCol * this.qtdLine)-1)){
-      this.frameAtual = 0;
+  pula(somDoPulo) {
+    if (this.contaPulo < this.limitePulo) {
+      this.velocidadeDoPulo =  - 30;
+      somDoPulo.play();
+      this.contaPulo++;
+      if (this.contaPulo===1) {
+        Pontuacao = (Pontuacao + 10);
+      }
     }
   }
   
+  aplicaGravidade() {
+    this.y = this.y + this.velocidadeDoPulo;
+    this.velocidadeDoPulo = this.velocidadeDoPulo + this.gravidade;
+    
+    if (this.y > this.yInicial) {
+        this.y = this.yInicial;
+        this.contaPulo = 0;
+    }
+  }
+  
+  estaColidindo(inimigo) {
+    const precisao = 0.7;
+    
+    return collideRectRect(
+        this.x, 
+        this.y, 
+        this.largura*precisao, 
+        this.altura*precisao,
+        inimigo.x, 
+        inimigo.y, 
+        inimigo.largura*precisao, 
+        inimigo.altura*precisao
+    )
+  }
 }
