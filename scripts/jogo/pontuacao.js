@@ -2,6 +2,7 @@ class Pontuacao {
   constructor() {
     this.pontos = 0;
     this.cristais = 0;
+    this.cristaisVida = 0;
     this.fonte = loadFont('imagens/assets/fonteTelaInicial.otf');
   }
 
@@ -9,7 +10,7 @@ class Pontuacao {
     textFont(this.fonte);
     fill(color('#FFFFFF'));
     strokeWeight(0);
-    textSize(width / 20);
+    textSize(32);
     textAlign(RIGHT, CENTER);
     let cWidth = textWidth('00000');
     
@@ -28,6 +29,7 @@ class Pontuacao {
   
   adicionarCristal() {
     this.cristais++;
+    this.cristaisVida++;
   }
 
   exibePontuacaoFinal(altura) {

@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
+
 canvas {
   display: block;
 }
@@ -22,6 +24,6 @@ canvas {
 }
 
 .botao-tela-inicial:hover {
-  background-color: #ffc0c1;
+  bAackground-color: #ffc0c1;
   box-shadow: 2px 2px 0px 1px #b58a8a;
 }

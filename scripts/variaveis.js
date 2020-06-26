@@ -1,3 +1,5 @@
+let fita;
+
 let imagemTelaInicial;
 
 let imagemCenario1;
@@ -33,6 +35,12 @@ let trilhaSonora;
 let somEntrada;
 
 let personagem;
+let imagemVida;
+let vida;
+
+let somPerdeVida;
+let somGanhaVida;
+
 let inimigo;
 let npc1;
 let npc2;
@@ -42,6 +50,7 @@ let npcs = [];
 
 let crystal;
 let pontuacao;
+let limiteCristais = 10;
 
 let button;
 
@@ -61,4 +70,6 @@ let cenaAtual = 'telaInicial';
 let cenas;
 
 let botaoGerenciador;
+
+
 

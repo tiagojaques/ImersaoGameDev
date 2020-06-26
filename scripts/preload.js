@@ -16,6 +16,9 @@ function preload() {
   /*** PERSONAGEM ***/
   imagemPersonagem = loadImage('imagens/personagem/correndo.png');
   
+  /*** VIDA ***/
+  imagemVida = loadImage('imagens/assets/coracao.png')
+  
 
   /*** OBJETOS TELA NPC E COLETAVEIS ***/
   imagemCristal = loadImage('imagens/coletaveis/crystal.png');
@@ -28,10 +31,13 @@ function preload() {
   gameover = loadImage('imagens/assets/game-over.png');
   trilhaSonora = loadSound('sons/trilha_jogo.mp3');
   somEntrada = loadSound('sons/entrada.mp3');
+  somPerdeVida = loadSound('sons/hit.wav');
+  somGanhaVida = loadSound('sons/vida.wav');
 
   /*** INIMIGOS ***/
   imagemInimigo = loadImage('imagens/inimigos/gotinha.png');
   imagemInimigoTroll = loadImage('imagens/inimigos/troll.png');
   imagemInimigoVoador = loadImage('imagens/inimigos/gotinha-voadora.png');
   
+  fita = loadJSON('fita/fita.json');
 }
