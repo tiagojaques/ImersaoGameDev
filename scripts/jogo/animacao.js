@@ -1,14 +1,15 @@
 class Animacao {
-  constructor(imagem, x, largura, altura, larguraSprite, alturaSprite) {
-    this.imagem = imagem
-    this.largura = largura
-    this.altura = altura
-    this.x = x
-    this.y = height - this.altura - 72
-    this.larguraSprite = larguraSprite
-    this.alturaSprite = alturaSprite
+  constructor(imagem, x, variacaoY, largura, altura, larguraSprite, alturaSprite) {
+    this.imagem = imagem;
+    this.largura = largura;
+    this.altura = altura;
+    this.variacaoY = variacaoY;
+    this.x = x;
+    this.y = height - this.altura - this.variacaoY;
+    this.larguraSprite = larguraSprite;
+    this.alturaSprite = alturaSprite;
 
-    this.frameAtual = 0
+    this.frameAtual = 0;
 
     this.qtdCol = int((this.imagem.width / this.larguraSprite));
     this.qtdLine = int((this.imagem.height / this.alturaSprite));
